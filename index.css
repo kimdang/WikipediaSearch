@@ -37,14 +37,20 @@ body {
     display: flex;
     width: 75%;
     height: 100%;
+    border-radius: 10px; /* round border corner */
+    font-size: 25px;
+    border: 1px solid transparent;
 }
 
 .send-box {
     display: flex;
     background-color: #0e2130;
+    width: 20%;
     color: #fcf6f6;
     height: 100%;
-
+    border-radius: 10px;
+    font-size: 25px;
+    border: 1px solid transparent;
 }
 
 
