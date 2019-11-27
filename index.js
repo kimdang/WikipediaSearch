@@ -6,6 +6,7 @@ var paraNode, linkNode, headNode
 var i 
 
 var keyword = ""
+/* searchable keyword to be sent to Wikipedia to get content/result */
 
 function construct() {
     if (keyword == "") {
@@ -13,10 +14,12 @@ function construct() {
 
     } else {
         document.getElementById("display").innerHTML = ""
+        /* if keyword is not empty (meaning there exists a previous search), set it to empty */
         keyword = document.getElementById("srchStr").value
-
     }
+
     url = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=opensearch&search=" + keyword + "&limit=10&format=json"
+
     makeRequest()
 }
 
@@ -26,7 +29,6 @@ function makeRequest() {
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
             jsonResponse = JSON.parse(httpRequest.responseText)
-            // document.getElementById("display").innerHTML = httpRequest.responseText
             breakDown()
         }
     }
@@ -42,11 +44,13 @@ function breakDown() {
 }
 
 function please() {
-    maindiv = document.createElement("div") 
-    
+    maindiv = document.createElement("div")
+    maindiv.setAttribute("class", "result-box") 
 
-    for (i=0; i<10; i++) {
+
+    for (i=0; i<9; i++) {
         sub = createSection(searchResult[i], description[i], wikiLink[i])
+        /* see function below */
         maindiv.appendChild(sub)
 
     }
@@ -75,6 +79,7 @@ function createSection(search_result, desc, wiki_link) {
     subdiv.appendChild(head)
     subdiv.appendChild(para)
     subdiv.appendChild(link)
+    subdiv.setAttribute("class", "sub-div")
 
     return subdiv
 }
@@ -85,4 +90,13 @@ document.getElementById("send").addEventListener("click", construct)
 
 
 
+{/* <div>
+    <div>
+        <div>
+            <div>paraNode</div> <--- para
+            <div>linkNode</div> <--- link
+            <div>headNode</div> <--- head
+        </div> <--- subdiv
+    </div> <--- maindiv
+</div> <--- in html */}
 

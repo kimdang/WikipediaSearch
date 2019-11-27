@@ -1,6 +1,6 @@
 
 body {
-    background-color:#b1a5a7;
+    background-color:#A8ADAF;
 }
 
 .big-container {
@@ -44,7 +44,7 @@ body {
 
 .send-box {
     display: flex;
-    background-color: #0e2130;
+    background-color: #4E4133;
     width: 20%;
     color: #fcf6f6;
     height: 100%;
@@ -57,4 +57,20 @@ body {
 .result-box {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.sub-div {
+    /* inside result-box */
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border-radius: 15px;
+    background-color: #DABAB3;
+    border: 2px solid #4E4133;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
 }
